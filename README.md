@@ -107,3 +107,7 @@ You should see tests covering:
 * Risk scoring and guardrails
 * Heuristic fallbacks when LLM output is invalid
 * End-to-end agent workflow shape
+
+## TF Summary
+
+The main thing students needed to understand this week was that BugHound is built more like a step by step agent workflow, not just one AI prompt giving an answer. It first looks at the code, then tries to figure out what is wrong, proposes a fix, checks how risky that fix is, and decides whether it should actually trust that output or leave it to a person. I think the biggest place students could get stuck is keeping track of which file handles each part of that flow, because the logic is spread across multiple files instead of all being in one spot. AI was helpful for getting a quick explanation of what a file or function was doing, especially when the codebase felt unfamiliar at first. At the same time, it could also be misleading because sometimes it made the system sound cleaner or smarter than it really is unless you go back and verify it in the actual code. One way I would help a student without giving away the answer is by asking them to trace one decision the agent makes, like where it decides a fix is risky, and follow that from the UI to the workflow file to the risk checker. That usually helps them understand the structure way better than just searching around randomly.
